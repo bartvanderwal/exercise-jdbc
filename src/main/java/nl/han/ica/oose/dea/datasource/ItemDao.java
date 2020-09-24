@@ -1,5 +1,6 @@
 package nl.han.ica.oose.dea.datasource;
 
+import nl.han.ica.oose.dea.DatabaseProperties;
 import nl.han.ica.oose.dea.domain.Item;
 
 import java.math.BigDecimal;

@@ -1,4 +1,4 @@
-package nl.han.ica.oose.dea.datasource;
+package nl.han.ica.oose.dea;
 
 import java.io.IOException;
 import java.util.Properties;
@@ -7,7 +7,11 @@ public class DatabaseProperties {
 
     private Properties properties;
 
-    public void loadProperties() {
+    public DatabaseProperties() {
+        loadProperties();
+    }
+
+    private void loadProperties() {
         if (properties==null) {
             properties = new Properties();
             try {
@@ -19,22 +23,18 @@ public class DatabaseProperties {
     }
 
     public String getConnectionString() {
-        loadProperties();
         return properties.getProperty("connectionString");
     }
 
     public String getPassword() {
-        loadProperties();
         return properties.getProperty("password");
     }
 
     public String getUser() {
-        loadProperties();
         return properties.getProperty("user");
     }
 
     public void loadDriver() {
-        loadProperties();
         var driver = properties.getProperty("driver");
         try {
             Class.forName(driver);
