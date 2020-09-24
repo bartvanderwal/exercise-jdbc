@@ -2,6 +2,33 @@
 Deze workshop is deel van de DEA Course aan de Hogeschool Arnhem/Nijmegen. 
 Onderwerp is het bekend raken met JDBC en de datasource-laag.
 
+## 24 sept 2020
+Disclaimer: Toegevoegd op verzoek studenten in les vandaag. Ik weet nu niet hoeveel dit toevoegt t.o.v. oorspronkelijke repo en de solution branch hierin.
+
+
+- Gebruik `localhost:3306`
+- Ik raad aan om als UI/database client MySql workbench te gebruiken die met de download van MySql mee komt in plaats. Dit in plaats van PHPMyAdmin die bij MySql uit XAMPP hoort. Maar dit is afhankelijk van eigen voorkeur.
+- Hier een simpel db scriptje voor mysql zodat voorbeeld code werkt:
+
+```mysql
+create database simpleJdbcApp;
+
+use simpleJdbcApp;
+
+create table employees(name varchar(128), salary decimal);
+
+insert into employees(name, salary) values ('Rick D.', 1000), ('Rick J.', 1000);
+-- select * from employees;
+```
+
+Je moet zelf ook enige handigheid creeren met database en mysql straks in programmeeropdracht, maar dit als opstart... (garantie tot de deur :)
+
+- Verder kreeg ik zelf ook nog een 'server time zone' probleem. Wellicht ligt dit aan werken op mac, of een iets oudere MySql versie in combi met nieuwste versie MySql-jdbc driver (8.0.21 uit Maven), maar stackoverflow gaf aan dit op te lossen met extra `?serverTimeZone=UTC` url parameter achteraan.
+
+- Al met al werk ik nu met de volgende URL:
+`jdbc:mysql://localhost:3306/simpleJdbcApp?serverTimezone=UTC`
+
+
 # Oefening
 
 In deze oefening zal een stand-alone Java applicatie worden gemaakt, die in staat is om
